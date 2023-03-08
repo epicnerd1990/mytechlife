@@ -1,0 +1,9 @@
+.scene-card-preview {
+    max-height: 300px; // 100px
+    width: 200px; //150px
+  }
+
+#scene-card-preview::after {
+    content: "\a\a";
+    white-space: pre;
+}
