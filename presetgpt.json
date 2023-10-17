@@ -1,0 +1,1603 @@
+{
+  "preset_info": {
+    "version": 13,
+    "title": "Device Control Widget 0.4.95 Alpha GPT",
+    "description": "Home Assistant Device Control Widget",
+    "author": "Corey Welsh",
+    "email": "coreyw2000@gmail.com",
+    "width": 1080,
+    "height": 321,
+    "features": "WEATHER DOWNLOAD SHELL",
+    "release": 374328615,
+    "locked": false,
+    "pflags": 0
+  },
+  "preset_root": {
+    "internal_type": "RootLayerModule",
+    "internal_toggles": {
+      "config_scale_value": 10
+    },
+    "internal_formulas": {
+      "config_scale_value": "100"
+    },
+    "globals_list": {
+      "readme": {
+        "index": 1,
+        "type": "LIST",
+        "title": "README",
+        "entries": "\"Hey there! To setup this widget correctly, you'll need to install Tasker. Please read the setup instructions at my GitHub here:\n<URL>\n\nHighlights of this widget are a OneUI based interface thats full customizable down to margins and corner radius. Features includes:\n- Modify icon sizes, padding and spacing to get the look you want\n- Automatic resizing and adjusting of layout, with further manual adjustments\n- \"setup\" mode which allows you to view all the data for spacing and icons you need\nAnd many more!\n\nCreated by Corey Welsh to fill the need of an easy-setup Home Assistant widget also looks great\"",
+        "value": "Hey there! To setup this widget correctly, you'll need to install Tasker. Please read the setup instructions at my GitHub here:\n<URL>\n\nHighlights of this widget are a OneUI based interface thats full customizable down to margins and corner radius. Features includes:\n- Modify icon sizes, padding and spacing to get the look you want\n- Automatic resizing and adjusting of layout, with further manual adjustments\n- setup mode which allows you to view all the data for spacing and icons you need\nAnd many more!\n\nCreated by Corey Welsh to fill the need of an easy-setup Home Assistant widget also looks great"
+      },
+      "- 1.": {
+        "index": 2,
+        "type": "LIST",
+        "title": "-- 1",
+        "value": "-- Color Options --",
+        "entries": "-- Color Options --\nClick to read color editing options\n\nTo edit the filters put onto the color, look for the dark or light color calculations in the flows tab. Follow the guide on github for color edits"
+      },
+      "colors": {
+        "index": 3,
+        "type": "FOLDER",
+        "title": "colors",
+        "description": "-- Choose your Widget colors --"
+      },
+      "colors/col1sel": {
+        "index": 4,
+        "type": "LIST",
+        "title": "col1sel",
+        "description": "Color 1 - Choose the color source for Box 2 background. If you dont use the color picker, set a color you like, and it will be used as a fallback",
+        "entries": "0##Wallpaper #1, 1##Wallpaper #2, 2##System (MaterialYou), 3##Manual (Color picker)",
+        "value": "0"
+      },
+      "colors/col1sysc": {
+        "index": 5,
+        "type": "LIST",
+        "title": "col1sysc",
+        "description": "Color 1 - System/MaterialYou Only\nChoose a color tone.",
+        "entries": "0##Accent #1, 1##Accent #2, 2##Accent #3, 3##Neutral #1, 4##Neutral #2, 5##Neutral #3",
+        "value": "2"
+      },
+      "colors/col1fil1": {
+        "index": 6,
+        "type": "LIST",
+        "title": "col1fil1",
+        "description": "Color 1 - Wallpaper Only\nChoose filter.",
+        "entries": "0##None, 1##Saturation, 2##Brightness, 3##Complimentary Color",
+        "value": "2"
+      },
+      "colors/col1adj": {
+        "index": 7,
+        "type": "NUMBER",
+        "title": "col1adj",
+        "description": "Color 1 - Filter adjustment\n0 = None, 100 = Strong",
+        "min": 0,
+        "max": 100,
+        "value": 40.0
+      },
+      "colors/col1fil2": {
+        "index": 8,
+        "type": "LIST",
+        "title": "col1fil2",
+        "description": "Color 1 - Choose filter manipulation - Changes slider above from total into add/subtract from current (optional)",
+        "entries": "0##None, 1##Add, 2##Remove",
+        "value": "0"
+      },
+      "colors/col1pick": {
+        "index": 9,
+        "type": "COLOR",
+        "title": "col1pick",
+        "description": "Color 1 - Manual Color choice, overrides filter\nAlso used as fallback color for extracted colors",
+        "value": "#FFFFFFFF"
+      },
+      "colors/col1alph": {
+        "index": 10,
+        "type": "NUMBER",
+        "title": "col1alph",
+        "description": "Color 1 - Opacity Adjustment\n0 = Transparent, 255 = Solid",
+        "min": 0,
+        "max": 100,
+        "value": 75.0
+      },
+      "colors/col2sel": {
+        "index": 11,
+        "type": "LIST",
+        "title": "col2sel",
+        "description": "Color 2 - Choose the color source for Box 2 background. If you dont use the color picker, set a color you like, and it will be used as a fallback",
+        "entries": "0##Wallpaper #1, 1##Wallpaper #2, 2##System (MaterialYou), 3##Manual (Color picker)",
+        "value": "0"
+      },
+      "colors/col2sysc": {
+        "index": 12,
+        "type": "LIST",
+        "title": "col2sysc",
+        "description": "Color 2 - System/MaterialYou Only\nChoose a color tone",
+        "entries": "0##Accent #1, 1##Accent #2, 2##Accent #3, 3##Neutral #1, 4##Neutral #2, 5##Shade Level",
+        "value": "0"
+      },
+      "colors/col2fil1": {
+        "index": 13,
+        "type": "LIST",
+        "title": "col2fil1",
+        "description": "Color 2 - Wallpaper Only\nChoose filter.",
+        "entries": "0##None, 1##Saturation, 2##Brightness, 3##Complimentary Color",
+        "value": "2"
+      },
+      "colors/col2adj": {
+        "index": 14,
+        "type": "NUMBER",
+        "title": "col2adj",
+        "description": "Color 2 - Filter adjustment\n0 = None, 100 = Strong",
+        "min": 0,
+        "max": 100,
+        "value": 55.0
+      },
+      "colors/col2fil2": {
+        "index": 15,
+        "type": "LIST",
+        "title": "col2fil2",
+        "description": "Color 2 - Choose filter manipulation - Changes number above from total into add/subtract from current (optional)",
+        "entries": "0##None, 1##Add, 2##Remove",
+        "value": "0"
+      },
+      "colors/col2pick": {
+        "index": 16,
+        "type": "COLOR",
+        "title": "col2pick",
+        "description": "Color 2 - Manual Color choice, overrides filter.\nAlso used as fallback color for extracted colors",
+        "value": "#E7FFFFFF"
+      },
+      "colors/col2alph": {
+        "index": 17,
+        "type": "NUMBER",
+        "title": "col2alph",
+        "description": "Color 2 - Opacity Adjustment\n0 = Transparent, 255 = Solid",
+        "min": 0,
+        "max": 100,
+        "value": 75.0
+      },
+      "colors/colico": {
+        "index": 18,
+        "type": "COLOR",
+        "title": "colico",
+        "description": "Color of icons and text. Default: #E7FFFFFF",
+        "value": "#E7FFFFFF"
+      },
+      "colors/colicoon": {
+        "index": 19,
+        "type": "COLOR",
+        "title": "colicoon",
+        "description": "Color of icons and text when device is on",
+        "value": "#FF00DEFF",
+        "toggles": 10,
+        "global_formula": "$ce(si(wpcolor1, comp), sat, 60)$"
+      },
+      "colors/col2fin": {
+        "index": 20,
+        "type": "COLOR",
+        "title": "col2fin",
+        "description": "Final output of color in Hex ARGB form",
+        "global_formula": "$ce(gv(generate/col2), gv(generate/col2), 50)$",
+        "value": "#BF007D8C"
+      },
+      "colors/col1fin": {
+        "index": 21,
+        "type": "COLOR",
+        "title": "col1fin",
+        "value": "#BF005B66"
+      },
+      "-- 2.": {
+        "index": 22,
+        "type": "LIST",
+        "title": "- 2.",
+        "entries": "-- Widget Sizing and Alignment --",
+        "value": "-- Widget Sizing and Alignment --"
+      },
+      "devcount": {
+        "index": 23,
+        "type": "LIST",
+        "title": "devcount",
+        "description": "Choose how many devices you'd like to control with this Widget, then select the style below",
+        "entries": "1##One,2##Two,3##Three or more",
+        "value": "3"
+      },
+      "1-device": {
+        "index": 24,
+        "type": "LIST",
+        "title": "1-device",
+        "description": "For 1 device control. Choose your widget style. The chosen style will determine what templates are avaliable.",
+        "entries": "DATA##\"Control 1 device with a style below. The chosen style will determine what templates are avaliable.\",0##Single Row\nSingle Box,1##Double Row\nSingle Box,2##Single Row\nDouble Box,3##Double Row\nDouble Box",
+        "value": "2"
+      },
+      "2-device": {
+        "index": 25,
+        "type": "LIST",
+        "title": "2-device",
+        "description": "For 2 device control. Choose your widget style. The chosen style will determine what templates are avaliable.",
+        "entries": "DATA##\"Control 2 devices with a style below. The chosen style will determine what templates are avaliable.\",1##Single Row\nDouble Box,2##Double Row\nOne row per device,3##Double Row\nOne box per device",
+        "value": "2"
+      },
+      "devicovi": {
+        "index": 26,
+        "type": "LIST",
+        "title": "devicovi",
+        "description": "Show/Hide the device icon in the corner of widget\nDefault: Show",
+        "entries": "0##Hide Device Icon,1## Show Device Icon",
+        "value": "1"
+      },
+      "devico": {
+        "index": 27,
+        "type": "LIST",
+        "title": "devico",
+        "description": "Choose the device icon to display in the corner of the widget. Hide it below. See Docs for custom icons",
+        "entries": "DATA##Choose the device icon for the device you want to control,0##Lights,1##Climate,2##Television,3##Audio,4##Security,5##Charging and Battery,6##Remote control,7##Custom (See Docs)\n",
+        "value": "0"
+      },
+      "box1size": {
+        "index": 28,
+        "type": "LIST",
+        "title": "box1size",
+        "description": "Choose number of columns or \"Remove\" if using a one box setting above. Some preset templates will move the second icon to \"0\" in Box 2 if set to 1 column",
+        "entries": "DATA##\"Choose number of columns or \"Remove\" if using a one box setting above. Some preset templates will move the second icon to \"0\" in Box 2 if set to 1 column\",0##Remove (Single box widget),15##1 Column, 35##2 Column",
+        "value": "35"
+      },
+      "box2alig": {
+        "index": 29,
+        "type": "LIST",
+        "title": "box2alig",
+        "description": "Choose Centered for templates that specifiy or dont have icons (like komponents).\nDefault: Beside Box",
+        "entries": "0##Beside Box 1,1##Centered",
+        "value": "0"
+      },
+      "boxorder": {
+        "index": 30,
+        "type": "LIST",
+        "title": "boxorder",
+        "description": "Set the order of the boxes on your widget. Box 1 is usually the smaller box with controls in it",
+        "entries": "DATA##'Set the order of the boxes on your widget. Box 1 is usually the smaller box with controls in it',1##Box 1 > Box 2,0##Box 2 > Box 1",
+        "value": "0"
+      },
+      "boxrad": {
+        "index": 31,
+        "type": "NUMBER",
+        "title": "boxrad",
+        "description": "Set the radius of the rounded corners.\nDefault: 10kpx",
+        "min": 0,
+        "max": 100,
+        "value": 10.0
+      },
+      "-- 3.": {
+        "index": 32,
+        "type": "LIST",
+        "title": "- 3.",
+        "entries": "-- Icon Sizing and Alignment --",
+        "value": "-- Icon Sizing and Alignment --"
+      },
+      "icosize": {
+        "index": 33,
+        "type": "NUMBER",
+        "title": "icosize",
+        "description": "Set the size of the device control icons.\nDefault: 80kpx",
+        "min": 20,
+        "max": 120,
+        "value": 80.0
+      },
+      "appico": {
+        "index": 34,
+        "type": "NUMBER",
+        "title": "appico",
+        "description": "Set the size of the small app-launcher icon(s).\nDefault: 32kpx",
+        "min": 20,
+        "max": 75,
+        "value": 32.0
+      },
+      "appicovi": {
+        "index": 35,
+        "type": "SWITCH",
+        "title": "appicovi",
+        "description": "Hide the app icons.\nOff = Show settings, On = Hide settings",
+        "value": 1
+      },
+      "devicosc": {
+        "index": 36,
+        "type": "LIST",
+        "title": "devicosc",
+        "description": "Control the size of the device icon.\nDefault: Auto-adjust",
+        "entries": "0##Normal Device icon size, 1##Match small icons, 2## Auto-shrink for smaller widget",
+        "value": "2"
+      },
+      "icodevsz": {
+        "index": 37,
+        "type": "NUMBER",
+        "title": "icodevsz",
+        "description": "Set the size of the widgets device icon if not shrunk above\nDefault: 120kpx",
+        "min": 0,
+        "max": 120,
+        "value": 120.0
+      },
+      "openedit": {
+        "index": 38,
+        "type": "SWITCH",
+        "title": "openedit",
+        "description": "Enable device icon click to open KWGT Editor. Diable once widget is set up",
+        "value": 1
+      },
+      "-- 4.": {
+        "index": 39,
+        "type": "LIST",
+        "title": "- 4.",
+        "entries": "-- Padding and Spacing --",
+        "value": "-- Padding and Spacing --"
+      },
+      "icopad": {
+        "index": 40,
+        "type": "NUMBER",
+        "title": "icopad",
+        "description": "Set the icon padding. Default: 20kpx",
+        "min": 0,
+        "max": 50,
+        "value": 20.0
+      },
+      "verpad": {
+        "index": 41,
+        "type": "NUMBER",
+        "title": "verpad",
+        "description": "Set the padding from the edge of screen to the side of widget.\nDefault: 15kpx",
+        "value": 5.0,
+        "min": 0,
+        "max": 50
+      },
+      "horpad": {
+        "index": 42,
+        "type": "NUMBER",
+        "title": "horpad",
+        "description": "Set the padding from the edge of screen to the top/bottom of widget. Will double when two widgets are stacked. Default: 4kpx",
+        "value": 5.0,
+        "min": 0,
+        "max": 50
+      },
+      "setupmde": {
+        "index": 43,
+        "type": "SWITCH",
+        "title": "setupmde",
+        "description": "Enable showing setup data. This will give you numbers and information for fine-tuning the widget to fit your device screen",
+        "value": 0
+      },
+      "endsetup": {
+        "index": 44,
+        "type": "TEXT",
+        "title": "endsetup",
+        "value": "-- END OF SETUP --"
+      },
+      "advanced": {
+        "index": 45,
+        "type": "TEXT",
+        "title": "advanced",
+        "value": "-- Advanced Options (may break things) --"
+      },
+      "apicopad": {
+        "index": 46,
+        "type": "SWITCH",
+        "title": "apicopad",
+        "description": "ADVANCED: Remove icon padding for settings while leaving icons. You may need to adjust icon size to prevent overlapping. Default: Off",
+        "value": "1"
+      },
+      "autoalig": {
+        "index": 47,
+        "type": "SWITCH",
+        "title": "autoalig",
+        "description": "ADVANCED - Manually set layout direction of widget. Use with next 2 options to configure",
+        "value": "0"
+      },
+      "wgtalign": {
+        "index": 48,
+        "type": "SWITCH",
+        "title": "wgtalign",
+        "description": "ADVANCED - Auto horizontal or vertical alignment based on widget sizing",
+        "on_mode": "MANUAL_FORMULA",
+        "on_formula": "$if(gv(autoalig) = 0, (si(rratio) < 0.8, 0))$",
+        "off_mode": "MANUAL_FORMULA",
+        "off_formula": "$if(gv(autoalig) = 0, (si(rratio) > 0.8, 0))$",
+        "value": 1
+      },
+      "position": {
+        "index": 49,
+        "type": "LIST",
+        "title": "position",
+        "description": "ADVANCED - Change the alignment of Box 1. Use with two previous settings",
+        "entries": "LEFT##Left - Horizontal Layout, RIGHT##Right - Horizontal Layout, TOP##Top - Vertical Layout, BOTTOM##Bottom - Vertical Layout",
+        "value": "RIGHT"
+      },
+      "generate": {
+        "index": 50,
+        "type": "FOLDER",
+        "title": "generate",
+        "description": "Generated Globals. Editing these formulas may cause unintended issues. Proceed with caution."
+      },
+      "generate/wgtwidth": {
+        "index": 51,
+        "type": "NUMBER",
+        "title": "wgtwidth",
+        "description": "GENERATED - Width of widget, minus padding",
+        "min": 100,
+        "max": 300,
+        "toggles": 10,
+        "global_formula": "$si(rwidth) - (gv(verpad) * 2)$"
+      },
+      "generate/wgtheigh": {
+        "index": 52,
+        "type": "NUMBER",
+        "title": "wgtheigh",
+        "description": "GENERATED - Height of widget, minus padding",
+        "value": 690,
+        "min": 500,
+        "max": 720,
+        "toggles": 10,
+        "global_formula": "$si(rheight) - (gv(horpad) * 2)$"
+      },
+      "generate/box1wid": {
+        "index": 53,
+        "type": "NUMBER",
+        "title": "box1wid",
+        "description": "GENERATED - Width of Box 1",
+        "min": 0,
+        "max": 500,
+        "value": 120.0,
+        "toggles": 10,
+        "global_formula": "$if(gv(wgtalign) = 1, gv(generate/wgtwidth), (gv(box1size) * 720 / 100))$"
+      },
+      "generate/box1hei": {
+        "index": 54,
+        "type": "NUMBER",
+        "title": "box1hei",
+        "description": "GENERATED - Height of Box 1",
+        "min": 0,
+        "max": 500,
+        "value": 120.0,
+        "toggles": 10,
+        "global_formula": "$if(gv(wgtalign) = 1, (gv(box1size) * 720 / 100), gv(generate/wgtheigh))$"
+      },
+      "generate/box2wid": {
+        "index": 55,
+        "type": "NUMBER",
+        "title": "box2wid",
+        "description": "GENERATED - Width of Box 2",
+        "min": 0,
+        "max": 720,
+        "toggles": 10,
+        "global_formula": "$if(gv(wgtalign) = 0, (if(gv(generate/wgtwidth) <= gv(generate/box2min), gv(generate/box2min), (gv(generate/wgtwidth) - gv(generate/box1wid)))), gv(generate/wgtwidth))$"
+      },
+      "generate/box2hei": {
+        "index": 56,
+        "type": "NUMBER",
+        "title": "box2hei",
+        "description": "GENERATED - Height of Box 2",
+        "min": 0,
+        "max": 720,
+        "toggles": 10,
+        "global_formula": "$if(gv(wgtalign) = 0, gv(generate/wgtheigh), (gv(generate/wgtheigh) - gv(generate/box1hei)))$"
+      },
+      "generate/box2min": {
+        "index": 57,
+        "type": "TEXT",
+        "title": "box2min",
+        "description": "GENERATED - Minimum size of Box 2. Based on 2 icons and padding",
+        "toggles": 10,
+        "global_formula": "$lv(devicosi, (if(gv(devicoge) = gv(icodevsz), gv(icodevsz), gv(appico))))$$lv(padding, (if(apicopad = 0, #devicosi, 0)))$$((gv(icosize) * 2) + (gv(icopad) * 2) + #padding)$"
+      },
+      "generate/icocount": {
+        "index": 58,
+        "type": "NUMBER",
+        "title": "icocount",
+        "description": "GENERATED - Number of icons visible in a Box 2. Based on widget size and padding",
+        "value": 4.0,
+        "min": 0,
+        "max": 10,
+        "toggles": 10,
+        "global_formula": "$lv(icon, gv(icosize) + gv(icopad))$$lv(devicosi, if(gv(devicoge) gv(icodevsz), gv(icodevsz), gv(appico)))$$lv(padding, if(apicopad = 0, #devicosi), 0)$$lv(boxsize1, if(gv(wgtalign) = 0, gv(generate/box2wid), gv(generate/box2hei)))$$lv(boxsize2, #boxsize1 - #padding)$$lv(count, #boxsize2 / #icon)$$if(#count <= 2, 2, tc(cut, mu(abs,#count), 1))$"
+      },
+      "generate/devicoge": {
+        "index": 59,
+        "type": "NUMBER",
+        "title": "devicoge",
+        "description": "GENERATED - Shrink Device icon. Uses app icon size and padding to align outside edge of icons",
+        "min": 0,
+        "max": 720,
+        "toggles": 10,
+        "global_formula": "$lv(small, gv(icopad) + gv(appico))$\n$lv(large, gv(icodevsz))$\n$lv(autoshr, (if(gv(generate/icocount) < 4 & gv(devicosc) = 2, 1, 0)))$\n$lv(1row, (if(si(rheight) <= 150, 1, 0)))$\n$if(#autoshr = 1 | gv(devicosc) = 1 | #1row = 1, #small, #autoshr = 0 | gv(devicosc) = 0, #large)$"
+      },
+      "generate/pagenum": {
+        "index": 60,
+        "type": "LIST",
+        "title": "pagenum",
+        "description": "GENERATED - Number of current page for paging templates",
+        "entries": "1##Page #1, 2##Page #2, 3##Page #3, 4##Page #4",
+        "value": "1"
+      },
+      "generate/col1": {
+        "index": 61,
+        "type": "COLOR",
+        "title": "col1",
+        "description": "GENERATED - Background color generated from user settings for smaller box",
+        "toggles": 10,
+        "global_formula": "$lv(source, (if(gv(colors/col1sel) = 0, \"wpcolor1\", gv(colors/col1sel) = 1, \"wpcolor2\", gv(colors/col1sel) = 2, \"sys\", \"0\")))$$lv(filter, (if(gv(colors/col1fil1) = 1, \"sat\", gv(colors/col1fil1) = 2, \"lum\", gv(colors/col1fil1) = 3, \"comp\", \"sat\")))$$lv(coltone, (if(gv(colors/col1sysc) = 0, \"sysca1\", gv(colors/col1sysc) = 1, \"sysca2\", gv(colors/col1sysc) = 2, \"sysca3\", gv(colors/col1sysc) = 3, \"syscn1\", gv(colors/col1sysc) = 4, \"syscn2\", gv(colors/col1sysc) = 5, \"syscn3\", \"sysca1\")))$$lv(addsub, (if(gv(colors/col1fil2) = 0, \"\", gv(colors/col1fil2) = 1, \"a\", gv(colors/col1fil2) = 2, \"r\", \"\")))$$if(gv(colors/col1fil1) > 0 & (#source = \"wpcolor1\" | #source = \"wpcolor2\"), lv(col1, ce(si(#source), #filter, gv(colors/col1adj))))$$if(gv(colors/col1fil1) > 0 & #source = \"sys\", lv(col2, si(#coltone, gv(colors/col1adj))))$$if(gv(colors/col1fil1) = 0 | gv(colors/col1sel) = 3, lv(col3, gv(colors/col1pick)))$$lv(color, (if(gv(colors/col1sel) <= 1, #col1, gv(colors/col1sel) = 2, #col2, gv(colors/col1sel) = 3, #col3)))$$lv(final, ce(#color, alpha, mu(round, gv(colors/col1alph), 0)))$$#final$"
+      },
+      "generate/col2": {
+        "index": 62,
+        "type": "COLOR",
+        "title": "col2",
+        "description": "GENERATED - Background color generated from user settings for Box 2",
+        "toggles": 10,
+        "global_formula": "$lv(source, (if(gv(colors/col2sel) = 0, \"wpcolor1\", gv(colors/col2sel) = 1, \"wpcolor2\", gv(colors/col2sel) = 2, \"sys\", \"0\")))$$lv(filter, (if(gv(colors/col2fil1) = 1, \"sat\", gv(colors/col2fil1) = 2, \"lum\", gv(colors/col2fil1) = 3, \"comp\", \"sat\")))$$lv(coltone, (if(gv(colors/col2sysc) = 0, \"sysca1\", gv(colors/col2sysc) = 1, \"sysca2\", gv(colors/col2sysc) = 2, \"sysca3\", gv(colors/col2sysc) = 3, \"syscn1\", gv(colors/col2sysc) = 4, \"syscn2\", gv(colors/col2sysc) = 5, \"syscn3\", \"sysca1\")))$$lv(addsub, (if(gv(colors/col2fil2) = 0, \"\", gv(colors/col2fil2) = 1, \"a\", gv(colors/col2fil2) = 2, \"r\", \"\")))$$if(gv(colors/col2fil1) > 0 & (#source = \"wpcolor1\" | #source = \"wpcolor2\"), lv(col1, ce(si(#source), #filter, gv(colors/col2adj))))$$if(gv(colors/col2fil1) > 0 & #source = \"sys\", lv(col2, si(#coltone, gv(colors/col2adj))))$$if(gv(colors/col2fil1) = 0 | gv(colors/col2sel) = 3, lv(col3, gv(colors/col2pick)))$$lv(color, (if(gv(colors/col2sel) <= 1, #col1, gv(colors/col2sel) = 2, #col2, gv(colors/col2sel) = 3, #col3)))$$lv(final, ce(#color, alpha, mu(round, gv(colors/col2alph), 0)))$$#final$"
+      },
+      "tasker": {
+        "index": 63,
+        "type": "FOLDER",
+        "title": "tasker",
+        "description": "Global variables to be updated with tasker data"
+      },
+      "tasker/info": {
+        "index": 64,
+        "type": "LIST",
+        "title": "INFO",
+        "entries": "-- Live data - Do not edit!",
+        "value": "-- Date sent and received from HA/Tasker"
+      },
+      "tasker/sendtoha": {
+        "index": 65,
+        "type": "TEXT",
+        "title": "sendtoha",
+        "description": "TASKER - Device control data to send to tasker from button click",
+        "value": "light&light.bedroom_lights&brightness:125"
+      },
+      "tasker/stateupd": {
+        "index": 66,
+        "type": "TEXT",
+        "title": "stateupd",
+        "description": "State information sent from tasker to apply to \"tasker/statedat\". Only entitites listed in HA Tasker blueprint are sent.",
+        "value": "$br(tasker, states)$"
+      },
+      "tasker/statedat": {
+        "index": 67,
+        "type": "TEXT",
+        "title": "statedat",
+        "value": "{\n  \"device_states\": [\n    {\n      \"entity_id\": \"placeholder\",\n      \"state\": \"on\"\n    },\n  ]\n}"
+      },
+      "tasker/colpic": {
+        "index": 68,
+        "type": "TEXT",
+        "title": "colpic",
+        "description": "Return from tasker Color Picker",
+        "value": "$br(tasker, colpic)$"
+      },
+      "formulas": {
+        "index": 69,
+        "type": "FOLDER",
+        "title": "formulas",
+        "description": "Formulas used for calling from formula boxes. Editing these formulas may cause unintended issues. Proceed with caution."
+      },
+      "formulas/devstate": {
+        "index": 70,
+        "type": "TEXT",
+        "title": "devstate",
+        "description": "FORMULA - Code used to determine device state",
+        "value": "$if(tc(reg, gv(tasker/statedat), #glbname, #glbname) != \"\", sh(\"echo '\" + gv(tasker/statedat) + \"' | tr ';;' '\\n' | awk -F':' '/^\" + #glbname + \":/ {print $2}'\"))$"
+      },
+      "formulas/lgtlevel": {
+        "index": 71,
+        "type": "TEXT",
+        "title": "lgtlevel",
+        "description": "FORMULA - Code used to determine light brightness level",
+        "value": "$if(tc(reg, gv(tasker/statedat), #glbname, #glbname) != \"\", sh(\"echo '\" + gv(tasker/statedat) + \"' | tr ';;' '\\n' | awk -F':' '/^\" + #glbname + \":/ {print $3}' | grep -E '^[0-9]+$' || echo 0\"))$"
+      },
+      "formulas/lgtcolor": {
+        "index": 72,
+        "type": "TEXT",
+        "title": "lgtcolor",
+        "description": "FORMULA - Code used to determine light color",
+        "value": "$if(tc(reg, gv(tasker/statedat), #glbname, #glbname) != \"\", sh(\"echo '\" + gv(tasker/statedat) + \"' | tr ';;' '\\n' | awk -F':' '/^\" + #glbname + \":/ {print $4}' | grep -E '^[0-9]{1,3},[0-9]{1,3},[0-9]{1,3}'\"))$"
+      },
+      "formulas/icostack": {
+        "index": 73,
+        "type": "TEXT",
+        "title": "icostack",
+        "description": "FORMULA - Stack group positioning",
+        "value": "$if(gv(position) = RIGHT, VERTICAL_RIGHT, gv(position) = LEFT, VERTICAL_LEFT,  gv(position) = TOP, HORIZONTAL_TOP,  gv(position) = BOTTOM, HORIZONTAL_BOTTOM)$"
+      },
+      "formulas/icopos": {
+        "index": 74,
+        "type": "TEXT",
+        "title": "icopos",
+        "description": "FORMULA - Stack group positioning",
+        "value": "$if(gv(position) = RIGHT, CENTERRIGHT, gv(position) = LEFT, CENTERLEFT,  gv(position) = TOP, TOP,  gv(position) = BOTTOM, BOTTOM)$"
+      },
+      "tasker/jsondata": {
+        "index": 75,
+        "type": "TEXT",
+        "title": "jsondata",
+        "value": "{\n  \"device_states\": [\n    {\n      \"entity_id\": \"placeholder\",\n      \"state\": \"on\"\n    },\n  ]\n}"
+      },
+      "icopadrw": {
+        "index": 76,
+        "type": "SWITCH",
+        "title": "icopadrw",
+        "description": "Enable Icon padding between rows",
+        "value": 0
+      },
+      "temp": {
+        "index": 77,
+        "type": "TEXT",
+        "title": "temp",
+        "value": ""
+      },
+      "formulas/clndata": {
+        "index": 78,
+        "type": "TEXT",
+        "title": "clndata",
+        "value": "$sh(\"echo '\" + #data + \"' | tr -d '\\n' | sed 's/ //g'\", 1/60)$"
+      }
+    },
+    "internal_flows": [
+      {
+        "id": "FeKvfGGD",
+        "name": "Settings/padding Connection",
+        "t": [
+          {
+            "id": "TT41czB9",
+            "type": "T_MANUAL"
+          },
+          {
+            "id": "TTUgbzGm",
+            "type": "T_FORMULA",
+            "params": {
+              "formula": "$gv(appicovi)$"
+            }
+          }
+        ],
+        "a": [
+          {
+            "id": "TAWiUheV",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$if(gv(appicovi) = 1, 1, 0)$"
+            }
+          },
+          {
+            "id": "TAtPSETR",
+            "type": "A_GLOBAL",
+            "params": {
+              "global": "apicopad"
+            }
+          }
+        ]
+      },
+      {
+        "id": "FOol7HW0",
+        "name": "Auto-align when Widget resized",
+        "t": [
+          {
+            "id": "TTQUg99e",
+            "type": "T_MANUAL"
+          }
+        ],
+        "a": [
+          {
+            "id": "TA9AHyH1",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$si(rratio)$"
+            }
+          },
+          {
+            "id": "TAfPSdvY",
+            "type": "A_DELAY",
+            "params": {
+              "delay_unit": "5"
+            }
+          },
+          {
+            "id": "TAkJ8tql",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$if(gv(autoalig) = 1 & si(rratio) = #last, 0, 1)$"
+            }
+          },
+          {
+            "id": "TAzGJYUJ",
+            "type": "A_GLOBAL",
+            "params": {
+              "global": "autoalig"
+            }
+          }
+        ]
+      },
+      {
+        "id": "FMbpgyDs",
+        "name": "Auto-align based on resize",
+        "t": [
+          {
+            "id": "TTMcQ0Xc",
+            "type": "T_MANUAL"
+          },
+          {
+            "id": "TTGZqmKT",
+            "type": "T_FORMULA",
+            "params": {
+              "formula": "$gv(boxorder)$"
+            }
+          }
+        ],
+        "a": [
+          {
+            "id": "TAKkmw2V",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$lv(current, gv(position))$$lv(horver, (if(gv(wgtalign) = 0, \"hor\", \"ver\")))$$lv(inverted, (if(gv(boxorder) = 0, \"no\", \"yes\")))$$lv(pos, (if(#horver = \"hor\" & #inverted = \"no\", \"RIGHT\", #horver = \"hor\" & #inverted = \"yes\", \"LEFT\", #horver = \"ver\" & #inverted = \"no\", \"TOP\", #horver = \"ver\" & #inverted = \"yes\", \"BOTTOM\")))$$if(gv(autoalig) = 0, #pos, current)$"
+            }
+          },
+          {
+            "id": "TAkUFwMK",
+            "type": "A_GLOBAL",
+            "params": {
+              "global": "position"
+            }
+          }
+        ]
+      },
+      {
+        "id": "FSjg0cIl",
+        "name": "Invert",
+        "t": [
+          {
+            "id": "TTMcQ0Xc",
+            "type": "T_MANUAL"
+          },
+          {
+            "id": "TTGZqmKT",
+            "type": "T_FORMULA",
+            "params": {
+              "formula": "$gv(wgtalign)$"
+            }
+          }
+        ],
+        "a": [
+          {
+            "id": "TAKkmw2V",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$lv(current, gv(position))$$lv(horver, (if(gv(wgtalign) = 0, \"hor\", \"ver\")))$$lv(inverted, (if(gv(boxorder) = 0, \"no\", \"yes\")))$$lv(pos, (if(#horver = \"hor\" & #inverted = \"no\", \"RIGHT\", #horver = \"hor\" & #inverted = \"yes\", \"LEFT\", #horver = \"ver\" & #inverted = \"no\", \"TOP\", #horver = \"ver\" & #inverted = \"yes\", \"BOTTOM\")))$$if(gv(autoalig) = 0, #pos, current)$"
+            }
+          },
+          {
+            "id": "TAkUFwMK",
+            "type": "A_GLOBAL",
+            "params": {
+              "global": "position"
+            }
+          }
+        ]
+      },
+      {
+        "id": "FFgHBJxG",
+        "name": "Color 1 > Final Global",
+        "t": [
+          {
+            "id": "TTUkmYaQ",
+            "type": "T_FORMULA",
+            "params": {
+              "formula": "$gv(generate/col1)$"
+            }
+          },
+          {
+            "id": "TTzikhLH",
+            "type": "T_ONCE"
+          }
+        ],
+        "a": [
+          {
+            "id": "TAR39UAy",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$lv(source, (if(gv(colors/col1sel) = 0, \"wpcolor1\", gv(colors/col1sel) = 1, \"wpcolor2\", gv(colors/col1sel) = 2, \"sys\", \"0\")))$\n$lv(filter, (if(gv(colors/col1fil1) = 1, \"sat\", gv(colors/col1fil1) = 2, \"lum\", gv(colors/col1fil1) = 3, \"comp\", \"sat\")))$\n$lv(coltone, (if(gv(colors/col1sysc) = 0, \"sysca1\", gv(colors/col1sysc) = 1, \"sysca2\", gv(colors/col1sysc) = 2, \"sysca3\", gv(colors/col1sysc) = 3, \"syscn1\", gv(colors/col1sysc) = 4, \"syscn2\", gv(colors/col1sysc) = 5, \"syscn3\", \"sysca1\")))$\n$lv(addsub, (if(gv(colors/col1fil2) = 0, \"\", gv(colors/col1fil2) = 1, \"a\", gv(colors/col1fil2) = 2, \"r\", \"\")))$\n\n$if(gv(colors/col1fil1) > 0 & (#source = \"wpcolor1\" | #source = \"wpcolor2\"), lv(col1, ce(si(#source), #filter, gv(colors/col1adj))))$\n$if(gv(colors/col1fil1) > 0 & #source = \"sys\", lv(col2, si(#coltone, gv(colors/col1adj))))$\n$if(gv(colors/col1fil1) = 0 | gv(colors/col1sel) = 3, lv(col3, gv(colors/col1pick)))$\n\n$lv(color, (if(gv(colors/col1sel) <= 1, #col1, gv(colors/col1sel) = 2, #col2, gv(colors/col1sel) = 3, #col3)))$\n$lv(final, ce(#color, alpha, mu(round, gv(colors/col1alph), 0)))$\n$#final$"
+            }
+          },
+          {
+            "id": "TAZoWSMA",
+            "type": "A_GLOBAL",
+            "params": {
+              "global": "col1fin"
+            }
+          }
+        ]
+      },
+      {
+        "id": "FuJP9Bh3",
+        "name": "Color 2 > Final Global",
+        "t": [
+          {
+            "id": "TTUkmYaQ",
+            "type": "T_FORMULA",
+            "params": {
+              "formula": "$gv(generate/col2)$"
+            }
+          },
+          {
+            "id": "TTBjHeGW",
+            "type": "T_ONCE"
+          }
+        ],
+        "a": [
+          {
+            "id": "TAR39UAy",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$lv(source, (if(gv(colors/col2sel) = 0, \"wpcolor1\", gv(colors/col2sel) = 1, \"wpcolor2\", gv(colors/col2sel) = 2, \"sys\", \"0\")))$\n$lv(filter, (if(gv(colors/col2fil1) = 1, \"sat\", gv(colors/col2fil1) = 2, \"lum\", gv(colors/col2fil1) = 3, \"comp\", \"sat\")))$\n$lv(coltone, (if(gv(colors/col2sysc) = 0, \"sysca1\", gv(colors/col2sysc) = 1, \"sysca2\", gv(colors/col2sysc) = 2, \"sysca3\", gv(colors/col2sysc) = 3, \"syscn1\", gv(colors/col2sysc) = 4, \"syscn2\", gv(colors/col2sysc) = 5, \"syscn3\", \"sysca1\")))$\n$lv(addsub, (if(gv(colors/col2fil2) = 0, \"\", gv(colors/col2fil2) = 1, \"a\", gv(colors/col2fil2) = 2, \"r\", \"\")))$\n\n$if(gv(colors/col2fil1) > 0 & (#source = \"wpcolor1\" | #source = \"wpcolor2\"), lv(col1, ce(si(#source), #filter, gv(colors/col2adj))))$\n$if(gv(colors/col2fil1) > 0 & #source = \"sys\", lv(col2, si(#coltone, gv(colors/col2adj))))$\n$if(gv(colors/col2fil1) = 0 | gv(colors/col2sel) = 3, lv(col3, gv(colors/col2pick)))$\n\n\n$lv(color, (if(gv(colors/col2sel) <= 1, #col1, gv(colors/col2sel) = 2, #col2, gv(colors/col2sel) = 3, #col3)))$\n$lv(final, ce(#color, alpha, mu(round, gv(colors/col2alph), 0)))$\n$#final$"
+            }
+          },
+          {
+            "id": "TAZoWSMA",
+            "type": "A_GLOBAL",
+            "params": {
+              "global": "col2fin"
+            }
+          }
+        ]
+      },
+      {
+        "id": "FblPILjW",
+        "name": "KWGT > Tasker",
+        "t": [
+          {
+            "id": "TTF5FNrP",
+            "type": "T_FORMULA",
+            "params": {
+              "formula": "$gv(tasker/sendtoha)$"
+            }
+          }
+        ],
+        "a": [
+          {
+            "id": "TAGxT3jY",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$lv(srvccall, tc(split, gv(tasker/sendtoha), \"&\", 0))$$lv(entityid, tc(split, gv(tasker/sendtoha), \"&\", 1))$$lv(data, tc(split, gv(tasker/sendtoha), \"&\", 2))$$lv(recomb, (if(#srvccall = \"template\", (\"tasker://secondary?service_call=\" + #srvccall + \"&parameters=\" + #entityid), (\"tasker://secondary?service_call=\" + #srvccall + \"&entity_id=\" + #entityid + \"&parameters=\" + #data))))$$#recomb$"
+            }
+          },
+          {
+            "id": "TA5q6BtU",
+            "type": "A_INTENT_URI",
+            "params": {
+              "uri": "$#last$"
+            }
+          }
+        ]
+      },
+      {
+        "id": "F0hyOinD",
+        "name": "Tasker > KWGT Global",
+        "t": [
+          {
+            "id": "TTfv2J33",
+            "type": "T_MANUAL"
+          },
+          {
+            "id": "TTw6dJEr",
+            "type": "T_FORMULA",
+            "params": {
+              "formula": "$gv(tasker/stateupd)$"
+            }
+          }
+        ],
+        "a": [
+          {
+            "id": "TAGxT3jY",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$lv(entity, tc(json, gv(tasker/stateupd), \".entity_id\"))$\n$lv(exists, if(tc(json, gv(tasker/jsondata), \"$.device_states[?(@.entity_id == '\" + #entity + \"')].entity_id\") != \"\", 1, 0))$\n$lv(datawipe, sh(\"echo '\" + gv(tasker/jsondata) + \"' | tr -d '\\n' | sed 's/ //g'\", 1/60))$\n$lv(jsonwipe, sh(\"echo '\" + gv(tasker/stateupd) + \"' | tr -d '\\n' | sed 's/ //g'\", 1/60))$\n$lv(jsonrem, (if(#exists = 1, sh(\"echo '\" + #datawipe + \"' | sed 's/{\" + tc(utf, 22) + \"entity_id\" + tc(utf, 22) + \":\" + tc(utf, 22) + #entity + tc(utf, 22) + \"[^}]*},//'\", 1/60), #datawipe)))$\n$lv(jsonout, sh(\"echo '\" + #jsonrem + \"' | sed 's/},]}/}, \" + #jsonwipe + \"]}/'\", 1/60))$\n$#jsonout$"
+            }
+          },
+          {
+            "id": "TA9GZugU",
+            "type": "A_GLOBAL",
+            "params": {
+              "global": "jsondata"
+            }
+          }
+        ]
+      },
+      {
+        "id": "FQClkWbQ",
+        "name": "Tasker > KWGT Test",
+        "t": [
+          {
+            "id": "TTfv2J33",
+            "type": "T_MANUAL"
+          }
+        ],
+        "a": [
+          {
+            "id": "TA2S7Op0",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$tc(json, gv(tasker/stateupd), \".entity_id\")$"
+            }
+          },
+          {
+            "id": "TAsg0Li5",
+            "type": "A_LOCAL",
+            "params": {
+              "local_var": "entity"
+            }
+          },
+          {
+            "id": "TAs2i6NA",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$if(tc(json, gv(tasker/jsondata), \"$.device_states[?(@.entity_id == '\" + #entity + \"')].entity_id\") != \"\", 1, 0)$"
+            }
+          },
+          {
+            "id": "TAPthTYS",
+            "type": "A_LOCAL",
+            "params": {
+              "local_var": "exists"
+            }
+          },
+          {
+            "id": "TAQlHyVC",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$sh(\"echo '\" + gv(tasker/jsondata) + \"' | tr -d '\\n' | sed 's/ //g'\", \"0.0167\")$"
+            }
+          },
+          {
+            "id": "TAliOZuD",
+            "type": "A_DELAY",
+            "params": {
+              "delay_unit": "5"
+            }
+          },
+          {
+            "id": "TArN9wpM",
+            "type": "A_LOCAL",
+            "params": {
+              "local_var": "datawipe"
+            }
+          },
+          {
+            "id": "TA6Vgh9c",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$sh(\"echo '\" + gv(tasker/stateupd) + \"' | tr -d '\\n' | sed 's/ //g'\", \"0.0167\")$"
+            }
+          },
+          {
+            "id": "TAQlou4T",
+            "type": "A_DELAY",
+            "params": {
+              "delay_unit": "5"
+            }
+          },
+          {
+            "id": "TABh1r9V",
+            "type": "A_LOCAL",
+            "params": {
+              "local_var": "jsonwipe"
+            }
+          },
+          {
+            "id": "TAB5TQ9W",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$if(#exists = 1, sh(\"echo '\" + #datawipe + \"' | sed 's/{\" + tc(utf, 22) + \"entity_id\" + tc(utf, 22) + \":\" + tc(utf, 22) + #entity + tc(utf, 22) + \"[^}]*},//'\", \"0.0167\"), #datawipe)$"
+            }
+          },
+          {
+            "id": "TAZBaCCT",
+            "type": "A_DELAY",
+            "params": {
+              "delay_unit": "5"
+            }
+          },
+          {
+            "id": "TAx6zPjC",
+            "type": "A_LOCAL",
+            "params": {
+              "local_var": "jsonrem"
+            }
+          },
+          {
+            "id": "TADBmsk8",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$sh(\"echo '\" + #jsonrem + \"' | sed 's/},]}/}, \" + #jsonwipe + \"]}/'\", \"0.0167\")$"
+            }
+          },
+          {
+            "id": "TA9fFhaH",
+            "type": "A_DELAY",
+            "params": {
+              "delay_unit": "5"
+            }
+          },
+          {
+            "id": "TA9GZugU",
+            "type": "A_GLOBAL",
+            "params": {
+              "global": "jsondata"
+            }
+          }
+        ]
+      },
+      {
+        "id": "FZnE9z0v",
+        "name": "Flow009",
+        "t": [
+          {
+            "id": "TTfv2J33",
+            "type": "T_MANUAL"
+          },
+          {
+            "id": "TT7OmZlp",
+            "type": "T_FORMULA",
+            "params": {
+              "formula": "$gv(tasker/stateupd)$"
+            }
+          }
+        ],
+        "a": [
+          {
+            "id": "TA2S7Op0",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$tc(json, gv(tasker/stateupd), \".entity_id\")$"
+            }
+          },
+          {
+            "id": "TAsg0Li5",
+            "type": "A_LOCAL",
+            "params": {
+              "local_var": "entity"
+            }
+          },
+          {
+            "id": "TAs2i6NA",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$if(tc(json, gv(tasker/jsondata), \"$.device_states[?(@.entity_id == '\" + #entity + \"')].entity_id\") != \"\", 1, 0)$"
+            }
+          },
+          {
+            "id": "TAPthTYS",
+            "type": "A_LOCAL",
+            "params": {
+              "local_var": "exists"
+            }
+          },
+          {
+            "id": "TAQlHyVC",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$lv(data, gv(tasker/jsondata))$$gv(formulas/clndata)$"
+            }
+          },
+          {
+            "id": "TArN9wpM",
+            "type": "A_LOCAL",
+            "params": {
+              "local_var": "datawipe"
+            }
+          },
+          {
+            "id": "TA6Vgh9c",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$lv(data, gv(tasker/stateupd))$$gv(formulas/clndata)$"
+            }
+          },
+          {
+            "id": "TABh1r9V",
+            "type": "A_LOCAL",
+            "params": {
+              "local_var": "jsonwipe"
+            }
+          },
+          {
+            "id": "TAZBaCCT",
+            "type": "A_DELAY",
+            "params": {
+              "delay_unit": "5"
+            }
+          },
+          {
+            "id": "TAB5TQ9W",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$if(#exists = 1, sh(\"echo '\" + #datawipe + \"' | sed 's/{\" + tc(utf, 22) + \"entity_id\" + tc(utf, 22) + \":\" + tc(utf, 22) + #entity + tc(utf, 22) + \"[^}]*},//'\", \"0.0167\"), #datawipe)$"
+            }
+          },
+          {
+            "id": "TAx6zPjC",
+            "type": "A_LOCAL",
+            "params": {
+              "local_var": "jsonrem"
+            }
+          },
+          {
+            "id": "TADBmsk8",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$sh(\"echo '\" + #jsonrem + \"' | sed 's/},]}/}, \" + #jsonwipe + \"]}/'\", \"0.0167\")$"
+            }
+          },
+          {
+            "id": "TA9fFhaH",
+            "type": "A_DELAY",
+            "params": {
+              "delay_unit": "5"
+            }
+          },
+          {
+            "id": "TA9GZugU",
+            "type": "A_GLOBAL",
+            "params": {
+              "global": "jsondata"
+            }
+          }
+        ]
+      },
+      {
+        "id": "FgVc6FrT",
+        "name": "Flow010",
+        "t": [
+          {
+            "id": "TTfv2J33",
+            "type": "T_MANUAL"
+          }
+        ],
+        "a": [
+          {
+            "id": "TAGxT3jY",
+            "type": "A_FORMULA",
+            "params": {
+              "formula": "$lv(entity, tc(json, gv(tasker/stateupd), \".entity_id\"))$\n$lv(exists, if(tc(json, gv(tasker/jsondata), \"$.device_states[?(@.entity_id == '\" + #entity + \"')].entity_id\") != \"\", 1, 0))$\n$lv(datawipe, sh(\"echo '\" + gv(tasker/jsondata) + \"' | tr -d '\\n' | sed 's/ //g'\"))$\n$lv(jsonwipe, sh(\"echo '\" + gv(tasker/stateupd) + \"' | tr -d '\\n' | sed 's/ //g'\"))$\n$lv(jsonrem, (if(#exists = 1, sh(\"echo '\" + #datawipe + \"' | sed 's/{\" + tc(utf, 22) + \"entity_id\" + tc(utf, 22) + \":\" + tc(utf, 22) + #entity + tc(utf, 22) + \"[^}]*},//'\"), #datawipe)))$\n$lv(jsonout, sh(\"echo '\" + #jsonrem + \"' | sed 's/},]}/}, \" + #jsonwipe + \"]}/'\"))$\n$#jsonout$"
+            }
+          },
+          {
+            "id": "TA9GZugU",
+            "type": "A_GLOBAL",
+            "params": {
+              "global": "jsondata"
+            }
+          }
+        ]
+      }
+    ],
+    "viewgroup_items": [
+      {
+        "internal_type": "OverlapLayerModule",
+        "internal_title": "Box 1",
+        "internal_toggles": {
+          "position_anchor": 10,
+          "position_offset_x": 10,
+          "position_offset_y": 10,
+          "config_visible": 10
+        },
+        "internal_formulas": {
+          "position_anchor": "$gv(formulas/icopos)$",
+          "position_offset_x": "$if(gv(wgtalign) = 0, gv(verpad), 0 )$",
+          "position_offset_y": "$if(gv(wgtalign) = 0, 0, gv(horpad))$",
+          "config_visible": "$if(gv(box1size) = 0, REMOVE, ALWAYS)$"
+        },
+        "viewgroup_items": [
+          {
+            "internal_type": "TextModule",
+            "text_expression": "to control (match global)",
+            "paint_color": "#00FFFFFF",
+            "internal_title": "-- Select how many devices",
+            "text_size": 1.0
+          },
+          {
+            "internal_type": "ShapeModule",
+            "internal_title": "-- Background - -",
+            "internal_toggles": {
+              "paint_color": 100,
+              "shape_width": 100,
+              "shape_height": 100,
+              "position_anchor": 0,
+              "position_padding_left": 0,
+              "position_padding_right": 0,
+              "position_padding_top": 0,
+              "shape_corners": 100
+            },
+            "internal_formulas": {
+              "paint_color": "$ce(gv(generate/col1),alpha,75)$",
+              "position_anchor": "$if(gv(wgtalign) = 0, CENTERRIGHT, TOP)$",
+              "position_padding_left": "$if(gv(wgtalign) = 0, gv(verpad), 0 )$",
+              "position_padding_right": "$if(gv(wgtalign) = 0, gv(verpad), 0 )$",
+              "position_padding_top": "$if(gv(wgtalign) = 0, 0, gv(horpad))$"
+            },
+            "shape_type": "RECT",
+            "shape_width": 135.0,
+            "shape_height": 212.0,
+            "paint_color": "#BF005B66",
+            "position_anchor": "BOTTOMLEFT",
+            "paint_mode": "OVERLAY",
+            "shape_corners": 10.0,
+            "internal_globals": {
+              "shape_width": "generate/box1wid",
+              "shape_height": "generate/box1hei",
+              "shape_corners": "boxrad",
+              "paint_color": "generate/col1"
+            }
+          },
+          {
+            "internal_type": "OverlapLayerModule",
+            "internal_title": "2 Devices",
+            "internal_toggles": {
+              "config_visible": 10
+            },
+            "internal_formulas": {
+              "config_visible": "$if(gv(devcount) = 2, \"ALWAYS\", \"NEVER\")$"
+            },
+            "viewgroup_items": [
+              {
+                "internal_type": "TextModule",
+                "internal_title": "-- Match marked templates",
+                "text_expression": "with Box 2 template",
+                "paint_color": "#00FFFFFF",
+                "text_size": 1.0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "internal_type": "OverlapLayerModule",
+        "internal_title": "Box 2",
+        "position_anchor": "CENTERLEFT",
+        "internal_toggles": {
+          "position_anchor": 10,
+          "position_offset_y": 10,
+          "position_offset_x": 10,
+          "config_visible": 0
+        },
+        "internal_formulas": {
+          "position_anchor": "$gv(formulas/icopos)$",
+          "position_offset_y": "$if(gv(wgtalign) = 0, 0, (gv(generate/box1hei) + gv(verpad)))$",
+          "position_offset_x": "$if(gv(wgtalign) = 0, (gv(generate/box1wid) + gv(verpad)), 0)$",
+          "config_visible": ""
+        },
+        "internal_globals": {
+          "position_offset_x": "verpad"
+        },
+        "viewgroup_items": [
+          {
+            "internal_type": "TextModule",
+            "text_expression": "to control (match global)",
+            "paint_color": "#00FFFFFF",
+            "internal_title": "-- Select how many devices",
+            "text_size": 1.0
+          },
+          {
+            "internal_type": "ShapeModule",
+            "shape_type": "RECT",
+            "shape_width": 545.0,
+            "shape_height": 212.0,
+            "paint_color": "#BB008F95",
+            "internal_toggles": {
+              "paint_color": 100,
+              "shape_width": 100,
+              "shape_height": 100,
+              "position_anchor": 10,
+              "position_padding_left": 0,
+              "shape_corners": 100
+            },
+            "internal_title": "-- Background --",
+            "position_anchor": "CENTERLEFT",
+            "internal_formulas": {
+              "paint_color": "$ce(gv(generate/col2),alpha,75)$",
+              "shape_width": "$if(gv(wgtalign) = 1, gv(generate/box2wid), (gv(generate/box2wid) - gv(generate/box1wid)))$",
+              "shape_height": "$if(gv(wgtalign) = 0, (gv(generate/box2hei) - gv(generate/box1wid)), (gv(generate/box2hei) - gv(generate/box1hei)))$",
+              "position_anchor": "$if(gv(wgtalign) = 0, CENTERLEFT, BOTTOM)$",
+              "position_padding_left": "$if(gv(wgtalign) = 0, gv(verpad), 0 )$"
+            },
+            "shape_corners": 10.0,
+            "internal_globals": {
+              "shape_width": "generate/box2wid",
+              "shape_height": "generate/box2hei",
+              "shape_corners": "boxrad",
+              "paint_color": "generate/col2"
+            }
+          },
+          {
+            "internal_type": "OverlapLayerModule",
+            "internal_title": "2 Devices",
+            "internal_toggles": {
+              "position_anchor": 10,
+              "position_padding_left": 10,
+              "position_padding_right": 10,
+              "position_padding_top": 10,
+              "position_padding_bottom": 10,
+              "config_visible": 10
+            },
+            "internal_formulas": {
+              "position_anchor": "$if(gv(box2alig) = 0, gv(formulas/icopos), CENTER)$",
+              "position_padding_left": "$if(gv(position) = LEFT, gv(icopad), 0)$",
+              "position_padding_right": "$if(gv(position) = RIGHT, gv(icopad), 0)$",
+              "position_padding_top": "$if(gv(position) = TOP, gv(icopad), 0)$",
+              "position_padding_bottom": "$if(gv(position) = BOTTOM, gv(icopad), 0)$",
+              "config_visible": "$if(gv(devcount) = 2, \"ALWAYS\", \"NEVER\")$"
+            },
+            "viewgroup_items": [
+              {
+                "internal_type": "TextModule",
+                "text_expression": "matches your global settings",
+                "paint_color": "#00FFFFFF",
+                "internal_title": "-- Choose the group that",
+                "text_size": 1.0
+              }
+            ]
+          },
+        ]
+      },
+      {
+        "internal_type": "OverlapLayerModule",
+        "internal_title": "Device Logos",
+        "internal_toggles": {
+          "position_anchor": 10,
+          "position_offset_x": 100,
+          "position_offset_y": 100,
+          "config_scale_value": 0,
+          "config_visible": 10
+        },
+        "internal_formulas": {
+          "position_anchor": "$if(gv(position) = RIGHT, TOPLEFT, gv(position) = LEFT, TOPRIGHT,  gv(position) = TOP, BOTTOMLEFT,  gv(position) = BOTTOM, TOPLEFT)$",
+          "config_scale_value": "",
+          "config_visible": "$if(gv(devicovi) = 0, REMOVE, ALWAYS)$"
+        },
+        "internal_globals": {
+          "position_offset_x": "verpad",
+          "position_offset_y": "horpad"
+        },
+        "viewgroup_items": [
+          {
+            "internal_type": "OverlapLayerModule",
+            "internal_title": "Lights",
+            "internal_toggles": {
+              "config_visible": 10
+            },
+            "internal_formulas": {
+              "config_visible": "$if(gv(devico) = 0, \"ALWAYS\", \"REMOVE\")$"
+            },
+            "viewgroup_items": [
+              {
+                "internal_type": "OverlapLayerModule",
+                "internal_title": "Light 1",
+                "internal_toggles": {
+                  "config_visible": 0
+                },
+                "internal_formulas": {
+                  "config_visible": ""
+                },
+                "viewgroup_items": [
+                  {
+                    "internal_type": "FontIconModule",
+                    "internal_toggles": {
+                      "paint_color": 10,
+                      "position_offset_y": 100,
+                      "position_offset_x": 100,
+                      "position_anchor": 0,
+                      "icon_rotate_mode": 10,
+                      "icon_size": 100
+                    },
+                    "internal_formulas": {
+                      "paint_color": "$ce(gv(colors/colico),alpha,20)$",
+                      "position_anchor": "",
+                      "icon_rotate_mode": "$if(gv(position) = RIGHT, NONE, gv(position) = LEFT, NONE,  gv(position) = TOP, DEG270,  gv(position) = BOTTOM, NONE)$",
+                      "icon_size": ""
+                    },
+                    "icon_set": "kfile://org.kustom.provider/icons/hawgts2.ttf",
+                    "icon_icon": "material-ico-wb-incandescent-mod",
+                    "icon_size": 120.0,
+                    "position_offset_x": 15.0,
+                    "internal_title": "Light",
+                    "internal_globals": {
+                      "position_offset_y": "horpad",
+                      "position_offset_x": "verpad",
+                      "icon_size": "generate/devicoge"
+                    },
+                    "icon_rotate_mode": "DEG270"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "internal_type": "StackLayerModule",
+        "internal_title": "App Icons",
+        "internal_toggles": {
+          "config_margin": 0,
+          "position_padding_left": 0,
+          "position_anchor": 10,
+          "config_visible": 10
+        },
+        "internal_globals": {
+          "config_margin": "icopad",
+          "position_padding_left": "icopad"
+        },
+        "config_stacking": "HORIZONTAL_CENTER",
+        "config_margin": 10.0,
+        "internal_formulas": {
+          "position_anchor": "$if(gv(position) = RIGHT, BOTTOMLEFT, gv(position) = LEFT, BOTTOMRIGHT,  gv(position) = TOP, BOTTOMRIGHT,  gv(position) = BOTTOM, TOPRIGHT)$",
+          "config_visible": "$if(gv(appicovi) = 0, ALWAYS, REMOVE)$"
+        },
+        "position_offset_x": 10.0,
+        "position_offset_y": 10.0,
+        "viewgroup_items": [
+          {
+            "internal_type": "FontIconModule",
+            "icon_icon": "mdi-cog",
+            "internal_title": "App 2",
+            "icon_size": 32.0,
+            "position_anchor": "BOTTOMLEFT",
+            "internal_events": [
+              {
+                "type": "SINGLE_TAP",
+                "action": "SWITCH_GLOBAL",
+                "kustom_action": "ADVANCED_EDITOR",
+                "intent": "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;component=io.homeassistant.companion.android/.launch.LaunchActivity;S.org.kustom.intent.label=Home%20Assistant;end",
+                "switch": "setupmde"
+              }
+            ],
+            "position_offset_x": 62.0,
+            "internal_toggles": {
+              "paint_color": 10,
+              "position_anchor": 10,
+              "position_offset_x": 10,
+              "icon_size": 100,
+              "position_offset_y": 10
+            },
+            "internal_formulas": {
+              "paint_color": "$if(gv(appicovi) = 0, ce(gv(colors/colico),alpha,20), #00FFFFFF)$",
+              "position_anchor": "$if(gv(position) = RIGHT, BOTTOMLEFT, gv(position) = LEFT, BOTTOMRIGHT,  gv(position) = TOP, BOTTOMRIGHT,  gv(position) = BOTTOM, TOPRIGHT)$",
+              "position_offset_x": "$gv(verpad) +(gv(icopad) * 2) +  gv(appico)$",
+              "position_offset_y": "$gv(horpad) + gv(icopad)$"
+            },
+            "icon_set": "kfile://org.kustom.provider/icons/hawgts2.ttf",
+            "internal_globals": {
+              "position_offset_x": "verpad",
+              "icon_size": "appico"
+            }
+          },
+          {
+            "internal_type": "FontIconModule",
+            "icon_icon": "mdi-home-assistant",
+            "internal_title": "App 1",
+            "icon_size": 32.0,
+            "position_anchor": "BOTTOMLEFT",
+            "internal_events": [
+              {
+                "type": "SINGLE_TAP",
+                "action": "LAUNCH_APP",
+                "kustom_action": "ADVANCED_EDITOR",
+                "intent": "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;component=io.homeassistant.companion.android/.launch.LaunchActivity;S.org.kustom.intent.label=Home%20Assistant;end"
+              }
+            ],
+            "position_offset_x": 22.0,
+            "internal_toggles": {
+              "paint_color": 10,
+              "position_anchor": 10,
+              "position_offset_x": 10,
+              "icon_size": 100,
+              "position_offset_y": 10
+            },
+            "internal_formulas": {
+              "paint_color": "$if(gv(appicovi) = 0, ce(gv(colors/colico),alpha,20), #00FFFFFF)$",
+              "position_anchor": "$if(gv(position) = RIGHT, BOTTOMLEFT, gv(position) = LEFT, BOTTOMRIGHT,  gv(position) = TOP, BOTTOMRIGHT,  gv(position) = BOTTOM, TOPRIGHT)$",
+              "position_offset_x": "$gv(verpad) + gv(icopad)$",
+              "position_offset_y": "$gv(horpad) + gv(icopad)$"
+            },
+            "icon_set": "kfile://org.kustom.provider/icons/hawgts2.ttf",
+            "internal_globals": {
+              "position_offset_x": "verpad",
+              "icon_size": "appico"
+            }
+          }
+        ]
+      },
+      {
+        "internal_type": "OverlapLayerModule",
+        "internal_title": "SETUP DATA - DO NOT DELETE",
+        "internal_toggles": {
+          "config_visible": 10
+        },
+        "internal_formulas": {
+          "config_visible": "$if(gv(setupmde)= 0 ,\"NEVER\", \"ALWAYS\")$"
+        },
+        "viewgroup_items": [
+          {
+            "internal_type": "ShapeModule",
+            "shape_type": "RECT",
+            "internal_toggles": {
+              "shape_width": 100,
+              "shape_height": 100
+            },
+            "internal_globals": {
+              "shape_width": "generate/wgtwidth",
+              "shape_height": "generate/wgtheigh"
+            },
+            "shape_height": 21.0,
+            "paint_color": "#55FFFFFF"
+          },
+          {
+            "internal_type": "TextModule",
+            "text_expression": "$gv(tasker/jsondata)$",
+            "internal_title": "Test",
+            "text_align": "CENTER",
+            "text_family": "kfile://org.kustom.provider/fonts/RobotoCondensed-Bold.ttf",
+            "text_filter": [
+              "UP"
+            ],
+            "paint_stroke": 2.0,
+            "paint_color": "#FF000000",
+            "text_size": 19.0
+          },
+          {
+            "internal_type": "OverlapLayerModule",
+            "internal_title": "Off",
+            "config_visible": "REMOVE",
+            "viewgroup_items": [
+              {
+                "internal_type": "TextModule",
+                "text_expression": "$lv(source, (if(gv(colors/col1sel) = 0, \"wpcolor1\", gv(colors/col1sel) = 1, \"wpcolor2\", gv(colors/col1sel) = 2, \"sys\", \"0\")))$source: $#source$\n$lv(filter, (if(gv(colors/col1fil1) = 1, \"sat\", gv(colors/col1fil1) = 2, \"lum\", gv(colors/col1fil1) = 3, \"comp\", \"sat\")))$filter: $#filter$\n$lv(coltone, (if(gv(colors/col1sysc) = 0, \"sysca1\", gv(colors/col1sysc) = 1, \"sysca2\", gv(colors/col1sysc) = 2, \"sysca3\", gv(colors/col1sysc) = 3, \"syscn1\", gv(colors/col1sysc) = 4, \"syscn2\", gv(colors/col1sysc) = 5, \"syscn3\", \"sysca1\")))$color tone: $#coltone$\n$lv(addsub, (if(gv(colors/col1fil2) = 0, \"\", gv(colors/col1fil2) = 1, \"a\", gv(colors/col1fil2) = 2, \"r\", \"\")))$ addsub: $#addsub$\n\n$si(#source)$\n$if(gv(colors/col1fil1) > 0 & (#source = \"wpcolor1\" | #source = \"wpcolor2\"), lv(col1, ce(si(#source), #filter, gv(colors/col1adj))))$wpcolor: $#col1$\n$ce(\"#FF000101\", sat, 45)$\n$if(gv(colors/col1fil1) > 0 & #source = \"sys\", lv(col2, si(#coltone, gv(colors/col1adj))))$sysui: $#col2$\n$if(gv(colors/col1fil1) = 0 | gv(colors/col1sel) = 3, lv(col3, gv(colors/col1pick)))$colpick: $#col3$\n\n$lv(color, (if(gv(colors/col1sel) <= 1, #col1, gv(colors/col1sel) = 2, #col2, gv(colors/col1sel) = 3, #col3)))$$#color$\n$lv(final, ce(#color, alpha, gv(colors/col1alph)))$\nFinal color: $#final$"
+              },
+              {
+                "internal_type": "TextModule",
+                "text_expression": "Widget Padding: $gv(verpad)$ Side, $gv(horpad)$ Top\nIcon: $gv(icosize)$kpx, $tc(reg, gv(generate/icocount), \"\\n\", \"\")$ Vis\nIcon Padding:$gv(icopad)$ Edge, $gv(icopad)$ MID\n\n[bl=-10]Widget: $si(rwidth)$W, $si(rheight)$H, $si(rratio)$ 1:1\nBox Area: $tc(reg, gv(generate/box2min), \"\\n\", \"\")$ Min, $gv(generate/box2wid)$W/$gv(generate/box2hei)$H\n\n$lv(icon, gv(icosize) + gv(icopad))$$lv(lgbox, if(gv(wgtalign) = 0, gv(generate/box2wid), gv(generate/box2hei)))$$lv(adjustment, if(gv(apicopad) = 0, gv(appico), 0))$$lv(boxsize, #lgbox - #adjustment)$Icon to size ratio: $mu(abs, #boxsize /#icon)$[/bl]",
+                "internal_title": "Widget Icon Padding",
+                "text_align": "CENTER",
+                "text_family": "kfile://org.kustom.provider/fonts/RobotoCondensed-Bold.ttf",
+                "text_filter": [
+                  "UP"
+                ],
+                "paint_stroke": 2.0
+              },
+              {
+                "internal_type": "ShapeModule",
+                "internal_title": "KODE Testing",
+                "internal_toggles": {
+                  "paint_color": 10
+                },
+                "internal_formulas": {
+                  "paint_color": "$lv(newstate, gv(tasker/stateupd))$$lv(allstate, gv(tasker/statedat))$$lv(entityid, tc(split, #newstate, \":\", 0))$$lv(exists, sh(\"echo '\" + #allstate + \"' | tr ';;' '\\n' | awk -F':' '/^\" + #entityid + \":/ {print $1}'\"))$\n$lv(adddata, if(#exists != \"\",(tc(reg, #allstate, #entityid + \":.*\", (#newstate + \";;\")), #allstate + \"\n\" + #newstate + \";;\")))$$lv(dedupe, (sh(\"echo '\" + #adddata + \"' | tr ';;' '\\n' | awk -F':' '!seen[$1]++ {print $0 \\\";;\\\"}'\")))$"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "internal_type": "ShapeModule",
+        "internal_title": "Backup Settings Button",
+        "internal_toggles": {
+          "position_anchor": 10
+        },
+        "internal_formulas": {
+          "position_anchor": "$if(gv(position) = RIGHT, TOPLEFT, gv(position) = LEFT, TOPRIGHT,  gv(position) = TOP, BOTTOMLEFT,  gv(position) = BOTTOM, TOPLEFT)$"
+        },
+        "shape_width": 30.0,
+        "paint_color": "#00FFFFFF",
+        "position_anchor": "TOPRIGHT",
+        "internal_events": [
+          {
+            "type": "SINGLE_TAP",
+            "action": "KUSTOM_ACTION",
+            "kustom_action": "ADVANCED_EDITOR"
+          }
+        ]
+      }
+    ]
+  }
+}
